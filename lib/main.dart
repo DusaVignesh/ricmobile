@@ -3,6 +3,7 @@ import 'package:ricmobile/login-page.dart';
 import 'package:ricmobile/pages/upload.dart';
 import 'package:ricmobile/routes/routes.dart';
 import 'package:get/get.dart';
+import 'firebase_options.dart';
 
 void main() {
   runApp(GetMaterialApp(
@@ -10,3 +11,11 @@ void main() {
     getPages: RoutesClass.pages,
   ));
 }
+
+
+
+
+
+// await Firebase.initializeApp(
+//     options: DefaultFirebaseOptions.currentPlatform,
+// );

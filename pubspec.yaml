@@ -39,6 +39,8 @@ dependencies:
   file_picker: ^5.3.2
   flutter_flushbar: ^0.0.2
   iconify_flutter: ^0.0.5
+  flutter_svg: ^1.1.5
+  firebase_core: ^2.14.0
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +52,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+ 
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -65,6 +68,11 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/logo-white.png
+    - assets/images/intelligence.svg
+    - assets/images/read.svg
+    - assets/images/journey.svg
+    - assets/images/vision.svg
+    - assets/images/ignorance.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

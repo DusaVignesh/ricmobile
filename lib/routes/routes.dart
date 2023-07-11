@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:ricmobile/login-page.dart';
 import 'package:ricmobile/pages/Logout.dart';
 import 'package:ricmobile/pages/change-password.dart';
 import 'package:ricmobile/pages/dashboard.dart';
 import 'package:ricmobile/pages/eCertificate.dart';
+import 'package:ricmobile/pages/homepage.dart';
 import 'package:ricmobile/pages/upload-files.dart';
 
 import '../pages/my-profile.dart';
@@ -24,9 +24,11 @@ class RoutesClass {
   };
   static List<MapEntry<String, String>> appbarList = appbar.entries.toList();
   static String Home = "/";
+  static String loginPage = "/loginPage";
   static String getHomeRoute() => Home;
   static List<GetPage> pages = [
-    GetPage(name: '/', page: () => LoginPage()),
+    GetPage(name: '/', page: () => Homepage()),
+    GetPage(name: loginPage, page: () => LoginPage()),
     GetPage(
         name: navigation[0],
         page: () => Dashboard(

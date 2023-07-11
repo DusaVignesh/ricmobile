@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "669318130098",
+    "project_id": "readindiacelebrations-12d72",
+    "storage_bucket": "readindiacelebrations-12d72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669318130098:android:85c2d35018d2e1787adcab",
+        "android_client_info": {
+          "package_name": "com.example.ricmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669318130098-20277f04s25ado8n4ljdrvdd0qq6od1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVuBYBU2on4Og-fId6K7dJewY1hfSwWM4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669318130098-20277f04s25ado8n4ljdrvdd0qq6od1o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
