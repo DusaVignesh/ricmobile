@@ -1,12 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:ricmobile/custom/text-field.dart';
 import 'package:ricmobile/data/login.dart';
+import 'package:ricmobile/services/firebase_services.dart';
 
-class CustomForm extends StatelessWidget {
+class CustomForm extends StatefulWidget {
   const CustomForm({super.key, required this.title, required this.isCitizen});
   final bool isCitizen;
   final String title;
+
+  @override
+  State<CustomForm> createState() => _CustomFormState();
+}
+
+class _CustomFormState extends State<CustomForm> {
+  FirebaseService? _firebaseService;
+
+  get _registerUser => null;
+
+  void initState() {
+    super.initState();
+    _firebaseService = GetIt.instance.get<FirebaseService>();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -42,7 +59,7 @@ class CustomForm extends StatelessWidget {
                             child: SizedBox(
                               width: size.width / 2,
                               child: Text(
-                                title,
+                                widget.title,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontSize: 24, fontWeight: FontWeight.w500),
@@ -52,47 +69,46 @@ class CustomForm extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          if (isCitizen == true)
-                            for (int j = 0;
-                                j < LoginData.citizentitles.length;
-                                j++)
-                              for (int i = 0; i < CustomTextField.length; i++)
-                                CustomTextField(
-                                  text: LoginData.citizentitles[j],
-                                  hinttext: LoginData.citizenhinttext[j],
-                                  lines: 1,
-                                  textColor: Colors.black,
-                                  textFieldColor: Colors.grey,
-                                  borderColor: Colors.black26,
-                                  fontSize: 16,
-                                  password:
-                                      LoginData.citizentitles.length == j + 1
-                                          ? true
-                                          : false,
-                                ).textField()[i],
-                          if (isCitizen == false)
-                            for (int j = 0;
-                                j < LoginData.studenthinttext.length;
-                                j++)
-                              for (int i = 0; i < CustomTextField.length; i++)
-                                CustomTextField(
-                                  text: LoginData.studenttitles[j],
-                                  hinttext: LoginData.studenthinttext[j],
-                                  lines: 1,
-                                  textColor: Colors.black,
-                                  textFieldColor: Colors.grey,
-                                  borderColor: Colors.black26,
-                                  fontSize: 16,
-                                  password:
-                                      LoginData.citizentitles.length == j + 1
-                                          ? true
-                                          : false,
-                                ).textField()[i],
+                          // if (widget.isCitizen == true)
+                          //   for (int j = 0;
+                          //       j < LoginData.citizentitles.length;
+                          //       j++)
+                          //     for (int i = 0; i < CustomTextField.length; i++)
+                          //       CustomTextField(
+                          //         text: LoginData.citizentitles[j],
+                          //         hinttext: LoginData.citizenhinttext[j],
+                          //         lines: 1,
+                          //         textColor: Colors.black,
+                          //         textFieldColor: Colors.grey,
+                          //         borderColor: Colors.black26,
+                          //         fontSize: 16,
+                          //         password:
+                          //             LoginData.citizentitles.length == j + 1
+                          //                 ? true
+                          //                 : false,
+                          //       ).textField()[i]
+                          for (int j = 0;
+                              j < LoginData.studenthinttext.length;
+                              j++)
+                            for (int i = 0; i < CustomTextField.length; i++)
+                              CustomTextField(
+                                text: LoginData.studenttitles[j],
+                                hinttext: LoginData.studenthinttext[j],
+                                lines: 1,
+                                textColor: Colors.black,
+                                textFieldColor: Colors.grey,
+                                borderColor: Colors.black26,
+                                fontSize: 16,
+                                password:
+                                    LoginData.studenttitles.length == j + 1
+                                        ? true
+                                        : false,
+                              ).textField()[i],
                           SizedBox(
                             height: 20,
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: _registerUser,
                             child: Container(
                                 padding: EdgeInsets.all(12),
                                 alignment: Alignment.center,
@@ -143,4 +159,12 @@ class CustomForm extends StatelessWidget {
       ),
     );
   }
+  // void _registerUser() async {
+  //   if (_registerFormKey.currentState!.validate() && _image != null) {
+  //     _registerFormKey.currentState!.save();
+  //     bool _result = await _firebaseService!.registerUser(
+  //         name: _name!, email: _email!, password: _password!, image: _image!);
+  //     if (_result) Navigator.pop(context);
+  //   }
+  // }
 }

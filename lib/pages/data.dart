@@ -10,7 +10,7 @@ class UnbordingContent {
 List<UnbordingContent> contents = [
   UnbordingContent(
       title: ' Reading Ignites Imagination And Innovation...  ',
-      image: 'assets/images/read.svg',
+      image: 'assets/images/journey.svg',
       discription: "Welcome to India's biggest reading festival! "),
   UnbordingContent(
       title: 'Why Do Intelligence & Ignorance Go Together In The  "I"?',
@@ -29,7 +29,7 @@ List<UnbordingContent> contents = [
       discription: "Reading is fun, fashion, and fruition for the mind...  "),
   UnbordingContent(
       title: 'RIC is your chance to transform sight into Insight..',
-      image: 'assets/images/vision.svg',
+      image: 'assets/images/insight.svg',
       discription:
           "What are you waiting for? Come and be a part of the #ReadIndiaCelebrations Knowledge Movement!"),
 ];

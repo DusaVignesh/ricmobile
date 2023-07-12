@@ -41,6 +41,10 @@ dependencies:
   iconify_flutter: ^0.0.5
   flutter_svg: ^1.1.5
   firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  cloud_firestore: ^4.8.2
+  get_it: ^7.6.0
+  firebase_storage: ^11.2.4
 
 dev_dependencies:
   flutter_test:
@@ -69,10 +73,11 @@ flutter:
   assets:
     - assets/images/logo-white.png
     - assets/images/intelligence.svg
-    - assets/images/read.svg
+    - assets/images/reading-student.svg
     - assets/images/journey.svg
     - assets/images/vision.svg
     - assets/images/ignorance.svg
+    - assets/images/insight.svg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

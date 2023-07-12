@@ -46,7 +46,7 @@ class LoginPage extends StatelessWidget {
                                 child: SizedBox(
                                   width: size.width / 2,
                                   child: Text(
-                                    'Enter your email address and password.',
+                                    'Enter your Username and Password.',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 16,
@@ -60,8 +60,8 @@ class LoginPage extends StatelessWidget {
                               ),
                               for (int i = 0; i < CustomTextField.length; i++)
                                 CustomTextField(
-                                        text: 'Email ID',
-                                        hinttext: 'Enter Email ID',
+                                        text: 'Username',
+                                        hinttext: 'Enter Your Username',
                                         lines: 1,
                                         textColor: Colors.black,
                                         textFieldColor: Colors.grey,
@@ -121,7 +121,7 @@ class LoginPage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                'If you are a student - ',
+                                'If you don\'t have an account - ',
                                 style: TextStyle(
                                     color: Colors.white60, fontSize: 16),
                               ),
@@ -134,7 +134,7 @@ class LoginPage extends StatelessWidget {
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.w800,
-                                      fontSize: 16),
+                                      fontSize: 15),
                                 ),
                               )
                             ],
@@ -142,28 +142,6 @@ class LoginPage extends StatelessWidget {
                           SizedBox(
                             height: 10,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'If you are a citizen - ',
-                                style: TextStyle(
-                                    color: Colors.white60, fontSize: 16),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  Get.to(CitizenRegister());
-                                },
-                                child: Text(
-                                  'Sign up Here',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 16),
-                                ),
-                              )
-                            ],
-                          )
                         ]),
                       )
                     ],

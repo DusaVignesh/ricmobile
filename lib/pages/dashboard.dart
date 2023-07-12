@@ -28,6 +28,7 @@ class Dashboard extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     Get.lazyPut(() => DrawerItems());
     Get.lazyPut(() => Profile());
+
     Get.lazyPut(() => Controller());
     Controller controller = Controller();
 

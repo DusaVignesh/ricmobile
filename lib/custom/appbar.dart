@@ -21,7 +21,7 @@ class CustomAppbar {
                 if (value == '/logout') CustomLogout(context: context).logout(),
               },
               itemBuilder: (context) => [
-                PopupMenuItem(
+                const PopupMenuItem(
                   child: Center(
                     child: Text(
                       'Welcome vigneshdusa',
@@ -30,7 +30,7 @@ class CustomAppbar {
                     ),
                   ),
                 ),
-                PopupMenuItem(
+                const PopupMenuItem(
                   value: '/changepassword',
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -51,7 +51,7 @@ class CustomAppbar {
                     ),
                   ),
                 ),
-                PopupMenuItem(
+                const PopupMenuItem(
                   value: '/logout',
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -73,7 +73,7 @@ class CustomAppbar {
                   ),
                 )
               ],
-              child: Icon(
+              child: const Icon(
                 Icons.account_circle_rounded,
                 size: 26,
               ),
