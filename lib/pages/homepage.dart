@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:ricmobile/pages/data.dart';
+import '../constants/constants.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -28,13 +29,12 @@ class _HomepageState extends State<Homepage> {
 
   @override
   Widget build(BuildContext context) {
-    // final PageController controller = PageController(initialPage: 1);
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xff0E243A),
+        backgroundColor: primaryColor,
         body: Column(children: [
           Container(
-            height: 30, // Set the desired amount of space above the image
+            height: 30,
           ),
           Image.asset(
             'assets/images/logo-white.png',

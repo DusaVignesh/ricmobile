@@ -14,7 +14,7 @@ class StudentRegister extends StatelessWidget {
     return Scaffold(
         backgroundColor: Color(0xff0E243A),
         body: CustomForm(
-          title: 'Student registration form',
+          title: 'Registration Form',
           isCitizen: false,
         ));
   }

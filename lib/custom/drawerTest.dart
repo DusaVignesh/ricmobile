@@ -49,7 +49,7 @@ class DrawerTestState extends State<DrawerTest> {
                         Future.delayed(const Duration(milliseconds: 180), () {
                           items.selectedItem[widget.id] = false;
                           Navigator.pop(context);
-                          Get.toNamed(RoutesClass.navigation[index]);
+                          Get.toNamed(navigation[index]);
                         });
                       }
                     },

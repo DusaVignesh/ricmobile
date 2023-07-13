@@ -18,17 +18,15 @@ class LoginData {
   static final List<String> studenttitles = [
     'Full Name',
     'Username',
-    'Email address',
+    // 'Email address',
     'Mobile Number',
-    'OTP',
     'Password',
   ];
   static final List<String> studenthinttext = [
     'Enter your name',
     'Enter your Username',
-    'Enter your Hobbies',
+    // 'Enter your Email',
     'Enter your mobile number',
-    'Enter OTP',
     'password',
   ];
 }

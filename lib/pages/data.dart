@@ -1,7 +1,7 @@
 class UnbordingContent {
-  String image;
-  String title;
-  String discription;
+  final String image;
+  final String title;
+  final String discription;
 
   UnbordingContent(
       {required this.image, required this.title, required this.discription});
@@ -9,11 +9,11 @@ class UnbordingContent {
 
 List<UnbordingContent> contents = [
   UnbordingContent(
-      title: ' Reading Ignites Imagination And Innovation...  ',
+      title: ' Reading Ignites Imagination And Innovation...',
       image: 'assets/images/journey.svg',
-      discription: "Welcome to India's biggest reading festival! "),
+      discription: "Welcome to India's biggest reading festival!"),
   UnbordingContent(
-      title: 'Why Do Intelligence & Ignorance Go Together In The  "I"?',
+      title: 'Why Do Intelligence & Ignorance Go Together In the "I"?',
       image: 'assets/images/intelligence.svg',
       discription:
           "10 minutes of reading Books, 'Self', &amp; Situations every day is the trigger to igniting Self-Awareness."),
@@ -26,7 +26,7 @@ List<UnbordingContent> contents = [
   UnbordingContent(
       title: 'Reward surprises',
       image: 'assets/images/journey.svg',
-      discription: "Reading is fun, fashion, and fruition for the mind...  "),
+      discription: "Reading is fun, fashion, and fruition for the mind..."),
   UnbordingContent(
       title: 'RIC is your chance to transform sight into Insight..',
       image: 'assets/images/insight.svg',

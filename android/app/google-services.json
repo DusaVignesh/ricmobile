@@ -29,6 +29,13 @@
             {
               "client_id": "669318130098-20277f04s25ado8n4ljdrvdd0qq6od1o.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "669318130098-2l7ij3d03n0k5o84sfg75ju7u6bo6pbe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ricmobile"
+              }
             }
           ]
         }
