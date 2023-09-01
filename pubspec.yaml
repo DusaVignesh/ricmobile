@@ -38,6 +38,10 @@ dependencies:
   get: ^4.6.5
   file_picker: ^5.3.2
   iconify_flutter: ^0.0.5
+  firebase_core: ^2.15.1
+  firebase_auth: ^4.9.0
+  pinput: ^3.0.1
+  cloud_firestore: ^4.9.1
 
 dev_dependencies:
   flutter_test:

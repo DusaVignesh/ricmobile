@@ -28,6 +28,7 @@ class RoutesClass {
   static List<GetPage> pages = [
     GetPage(name: '/temp', page: () => Temp()),
     GetPage(name: '/', page: () => LoginPage()),
+    GetPage(name: '/login', page: () => LoginPage()),
     GetPage(
         name: navigation[0],
         page: () => Dashboard(
