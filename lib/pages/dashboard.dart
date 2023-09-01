@@ -1,11 +1,11 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_flushbar/flutter_flushbar.dart';
+// import 'package:flutter_flushbar/flutter_flushbar.dart';
 import 'package:ricmobile/controller/controller.dart';
 import 'package:ricmobile/custom/appbar.dart';
 import 'package:ricmobile/custom/drawerTest.dart';
 import 'package:get/get.dart';
-import 'package:ricmobile/custom/snackbar.dart';
+// import 'package:ricmobile/custom/snackbar.dart';
 import 'package:ricmobile/data/drawer-items.dart';
 import 'package:ricmobile/data/profile.dart';
 import 'package:ricmobile/helpers/ricfont.dart';
@@ -15,7 +15,6 @@ import '../custom/button.dart';
 class Dashboard extends StatelessWidget {
   Dashboard({super.key, required this.id});
   final int id;
-  Flushbar flushbar = Flushbar();
   @override
   Widget build(BuildContext context) {
     void pickFile() async {
@@ -292,13 +291,13 @@ class Dashboard extends StatelessWidget {
                                       InkWell(
                                         onTap: () {
                                           print('pressed');
-                                          show(
-                                              context,
-                                              CustomSnackbar(
-                                                messageText:
-                                                    'File Upload Succesfully',
-                                                context: context,
-                                              ).topSnackbar());
+                                          // show(
+                                          //     context,
+                                          //     CustomSnackbar(
+                                          //       messageText:
+                                          //           'File Upload Succesfully',
+                                          //       context: context,
+                                          //     ).topSnackbar());
                                         },
                                         child: CustomButton(
                                                 text: 'Continue & Save',
@@ -322,9 +321,9 @@ class Dashboard extends StatelessWidget {
         ));
   }
 
-  Future show(BuildContext context, Flushbar newFlushbar) async {
-    Future.wait([flushbar.dismiss()]);
-    newFlushbar.show(context);
-    flushbar = newFlushbar;
-  }
+  // Future show(BuildContext context, Flushbar newFlushbar) async {
+  //   Future.wait([flushbar.dismiss()]);
+  //   newFlushbar.show(context);
+  //   flushbar = newFlushbar;
+  // }
 }

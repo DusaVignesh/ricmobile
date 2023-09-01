@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:ricmobile/login-page.dart';
-import 'package:ricmobile/pages/Logout.dart';
 import 'package:ricmobile/pages/change-password.dart';
 import 'package:ricmobile/pages/dashboard.dart';
 import 'package:ricmobile/pages/eCertificate.dart';
+import 'package:ricmobile/pages/logout.dart';
 import 'package:ricmobile/pages/upload-files.dart';
-
+import '../temp.dart';
 import '../pages/my-profile.dart';
 
 class RoutesClass {
+  static String temp = '/temp';
   static List<String> navigation = [
     "/dashboard",
     "/myprofile",
@@ -26,6 +26,7 @@ class RoutesClass {
   static String Home = "/";
   static String getHomeRoute() => Home;
   static List<GetPage> pages = [
+    GetPage(name: '/temp', page: () => Temp()),
     GetPage(name: '/', page: () => LoginPage()),
     GetPage(
         name: navigation[0],
