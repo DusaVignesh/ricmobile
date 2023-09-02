@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ricmobile/pages/citizen-register.dart';
@@ -58,33 +59,126 @@ class LoginPage extends StatelessWidget {
                               SizedBox(
                                 height: 10,
                               ),
-                              for (int i = 0; i < CustomTextField.length; i++)
-                                CustomTextField(
-                                        text: 'Email ID',
-                                        hinttext: 'Enter Email ID',
-                                        lines: 1,
-                                        textColor: Colors.black,
-                                        textFieldColor: Colors.grey,
-                                        borderColor: Colors.black26,
-                                        fontSize: 16)
-                                    .textField()[i],
-                              for (int i = 0; i < CustomTextField.length; i++)
-                                CustomTextField(
-                                        text: 'Password',
-                                        hinttext: 'password',
-                                        lines: 1,
-                                        textColor: Colors.black,
-                                        textFieldColor: Colors.grey,
-                                        borderColor: Colors.black26,
-                                        fontSize: 16,
-                                        password: true)
-                                    .textField()[i],
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                'Email ID',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              TextFormField(
+                                maxLines: 1,
+                                controller: controller.email,
+                                style: TextStyle(height: 1),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter Email ID',
+                                    hintStyle: TextStyle(color: Colors.grey),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide:
+                                            BorderSide(color: Colors.black26)),
+                                    border: OutlineInputBorder()),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                'Password',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Obx(() {
+                                return TextFormField(
+                                  obscureText:
+                                      !controller.passwordVisible.value,
+                                  maxLines: 1,
+                                  controller: controller.password,
+                                  style: TextStyle(height: 1),
+                                  decoration: InputDecoration(
+                                      hintText: 'password',
+                                      hintStyle: TextStyle(color: Colors.grey),
+                                      enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Colors.black26)),
+                                      border: OutlineInputBorder(),
+                                      suffixIcon: Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(5),
+                                          color: Color(0xffF7F7F7),
+                                        ),
+                                        margin: EdgeInsets.only(right: 5),
+                                        child: IconButton(
+                                          icon: Icon(
+                                            controller.passwordVisible == true
+                                                ? Icons.visibility
+                                                : Icons.visibility_off,
+                                            color: Colors.black54,
+                                          ),
+                                          onPressed: () {
+                                            controller.passwordVisible.value =
+                                                controller.passwordVisible
+                                                            .value ==
+                                                        true
+                                                    ? false
+                                                    : true;
+                                          },
+                                        ),
+                                      )),
+                                );
+                              }),
                               SizedBox(
                                 height: 20,
                               ),
                               ElevatedButton(
-                                onPressed: () {
-                                  Get.to(Dashboard(id: 0));
+                                onPressed: () async {
+                                  try {
+                                    QuerySnapshot<Map<String, dynamic>>
+                                        usersRef = await FirebaseFirestore
+                                            .instance
+                                            .collection('users')
+                                            .where('email',
+                                                isEqualTo:
+                                                    controller.email.text)
+                                            .get();
+                                    if (usersRef.docs.isNotEmpty) {
+                                      if (usersRef.docs[0]['password'] ==
+                                          controller.password.text) {
+                                        Get.to(Dashboard(id: 0));
+                                      } else {
+                                        print('password problem');
+                                        Get.to(LoginPage());
+                                      }
+                                    } else {
+                                      Get.to(LoginPage());
+                                    }
+
+                                    // if (userDoc.docs.isNotEmpty) {
+                                    //   if (controller.password.text ==
+                                    //       userDoc.docs[0]['password']) {
+                                    //     // The email and password match.
+                                    //     print('The user is authenticated.');
+                                    //   } else {
+                                    //     // The email and password do not match.
+                                    //     print('The user is not authenticated.');
+                                    //   }
+                                    // } else {
+                                    //   // The user does not exist.
+                                    //   print('The user does not exist.');
+                                    // }
+                                  } catch (e) {
+                                    print(e);
+                                  }
                                 },
                                 child: Container(
                                     padding: EdgeInsets.all(12),

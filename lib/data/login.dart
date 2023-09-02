@@ -6,7 +6,7 @@ class LoginData {
   ];
   static final List<String> citizenhinttext = [
     'Enter your name',
-    'Enter your Hobbies',
+    'Enter your email address',
     'password',
   ];
   static final List<String> studenttitles = [
@@ -16,7 +16,7 @@ class LoginData {
   ];
   static final List<String> studenthinttext = [
     'Enter your name',
-    'Enter your Hobbies',
+    'Enter your email address',
     'password',
   ];
 }

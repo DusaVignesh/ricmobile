@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +8,8 @@ import 'package:ricmobile/custom/text-field.dart';
 import 'package:ricmobile/data/login.dart';
 import 'package:pinput/pinput.dart';
 import 'package:ricmobile/pages/citizen-register.dart';
+
+import '../pages/dashboard.dart';
 
 class CustomForm extends StatelessWidget {
   const CustomForm({super.key, required this.title, required this.isCitizen});
@@ -85,42 +88,125 @@ class CustomForm extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          if (isCitizen == true)
-                            for (int j = 0;
-                                j < LoginData.citizentitles.length;
-                                j++)
-                              for (int i = 0; i < CustomTextField.length; i++)
-                                CustomTextField(
-                                  text: LoginData.citizentitles[j],
-                                  hinttext: LoginData.citizenhinttext[j],
-                                  lines: 1,
-                                  textColor: Colors.black,
-                                  textFieldColor: Colors.grey,
-                                  borderColor: Colors.black26,
-                                  fontSize: 16,
-                                  password:
-                                      LoginData.citizentitles.length == j + 1
-                                          ? true
-                                          : false,
-                                ).textField()[i],
-                          if (isCitizen == false)
-                            for (int j = 0;
-                                j < LoginData.studenthinttext.length;
-                                j++)
-                              for (int i = 0; i < CustomTextField.length; i++)
-                                CustomTextField(
-                                  text: LoginData.studenttitles[j],
-                                  hinttext: LoginData.studenthinttext[j],
-                                  lines: 1,
-                                  textColor: Colors.black,
-                                  textFieldColor: Colors.grey,
-                                  borderColor: Colors.black26,
-                                  fontSize: 16,
-                                  password:
-                                      LoginData.citizentitles.length == j + 1
-                                          ? true
-                                          : false,
-                                ).textField()[i],
+                          // if (isCitizen == true)
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'Full Name',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            maxLines: 1,
+                            controller: controller.studentnameController,
+                            style: TextStyle(height: 1),
+                            decoration: InputDecoration(
+                                hintText: 'Enter your name',
+                                hintStyle: TextStyle(color: Colors.grey),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.black26)),
+                                border: OutlineInputBorder()),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'Email address',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextFormField(
+                            maxLines: 1,
+                            controller: controller.studentemailController,
+                            style: TextStyle(height: 1),
+                            decoration: InputDecoration(
+                                hintText: 'Enter your email address',
+                                hintStyle: TextStyle(color: Colors.grey),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.black26)),
+                                border: OutlineInputBorder()),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'Password',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Obx(() {
+                            return TextFormField(
+                              obscureText: !controller.passwordVisible.value,
+                              maxLines: 1,
+                              controller: controller.studentpasswordController,
+                              style: TextStyle(height: 1),
+                              decoration: InputDecoration(
+                                  hintText: 'password',
+                                  hintStyle: TextStyle(color: Colors.grey),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.black26)),
+                                  border: OutlineInputBorder(),
+                                  suffixIcon: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(5),
+                                      color: Color(0xffF7F7F7),
+                                    ),
+                                    margin: EdgeInsets.only(right: 5),
+                                    child: IconButton(
+                                      icon: Icon(
+                                        controller.passwordVisible == true
+                                            ? Icons.visibility
+                                            : Icons.visibility_off,
+                                        color: Colors.black54,
+                                      ),
+                                      onPressed: () {
+                                        controller.passwordVisible.value =
+                                            controller.passwordVisible.value ==
+                                                    true
+                                                ? false
+                                                : true;
+                                      },
+                                    ),
+                                  )),
+                            );
+                          }),
+                          // if (isCitizen == false)
+                          //   for (int j = 0;
+                          //       j < LoginData.studenthinttext.length;
+                          //       j++)
+                          //     for (int i = 0; i < CustomTextField.length; i++)
+                          //       CustomTextField(
+                          //         text: LoginData.studenttitles[j],
+                          //         hinttext: LoginData.studenthinttext[j],
+                          //         lines: 1,
+                          //         textColor: Colors.black,
+                          //         textFieldColor: Colors.grey,
+                          //         borderColor: Colors.black26,
+                          //         fontSize: 16,
+                          //         password:
+                          //             LoginData.citizentitles.length == j + 1
+                          //                 ? true
+                          //                 : false,
+                          //       ).textField()[i],
                           SizedBox(
                             height: 20,
                           ),
@@ -136,7 +222,7 @@ class CustomForm extends StatelessWidget {
                           ),
                           TextFormField(
                             maxLines: 1,
-                            controller: controller.phoneNumber,
+                            controller: controller.studentmobileController,
                             keyboardType: TextInputType.number,
                             style: TextStyle(height: 1),
                             decoration: InputDecoration(
@@ -161,7 +247,7 @@ class CustomForm extends StatelessWidget {
                               onPressed: () async {
                                 await FirebaseAuth.instance.verifyPhoneNumber(
                                   phoneNumber:
-                                      '${controller.countryCode.text + controller.phoneNumber.text}',
+                                      '${controller.countryCode.text + controller.citizenmobileController.text}',
                                   verificationCompleted:
                                       (PhoneAuthCredential credential) {},
                                   verificationFailed:
@@ -169,20 +255,21 @@ class CustomForm extends StatelessWidget {
                                   codeSent: (String verificationId,
                                       int? resendToken) {
                                     CustomForm.verify = verificationId;
-                                    CustomForm.phone =
-                                        controller.countryCode.text +
-                                            " " +
-                                            controller.phoneNumber.text;
+                                    CustomForm.phone = controller
+                                            .countryCode.text +
+                                        " " +
+                                        controller.citizenmobileController.text;
                                   },
                                   codeAutoRetrievalTimeout:
                                       (String verificationId) {},
                                 );
+                                print(CustomForm.verify);
                               },
                               child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'Next',
+                                    'Get OTP',
                                     style: TextStyle(fontSize: 16),
                                   ),
                                   Icon(Icons.arrow_right_sharp)
@@ -215,11 +302,26 @@ class CustomForm extends StatelessWidget {
                                           PhoneAuthProvider.credential(
                                               verificationId: CustomForm.verify,
                                               smsCode: code);
+                                      print(CustomForm.verify);
                                       await auth
                                           .signInWithCredential(credential);
-                                      Get.toNamed('/login');
+                                      print('success');
+                                      Get.to(Dashboard(id: 0));
                                     } catch (e) {
                                       print("wrong phone");
+                                    } finally {
+                                      FirebaseFirestore.instance
+                                          .collection('users')
+                                          .add({
+                                        'fullname':
+                                            '${controller.studentnameController.text}',
+                                        'email':
+                                            '${controller.studentemailController.text}',
+                                        'password':
+                                            '${controller.studentpasswordController.text}',
+                                        'mobile':
+                                            '${controller.studentmobileController.text}',
+                                      });
                                     }
                                   },
                                   style: ElevatedButton.styleFrom(
