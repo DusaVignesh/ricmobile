@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_flushbar/flutter_flushbar.dart';
+// import 'package:flutter_flushbar/flutter_flushbar.dart';
 import 'package:get/get.dart';
 import 'package:ricmobile/custom/snackbar.dart';
 
@@ -9,7 +9,7 @@ import '../custom/text-field.dart';
 
 class ForgotPassword extends StatelessWidget {
   ForgotPassword({super.key});
-  Flushbar flushbar = Flushbar();
+  // Flushbar flushbar = Flushbar();
   @override
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
@@ -56,12 +56,12 @@ class ForgotPassword extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                show(
-                                    context,
-                                    CustomSnackbar(
-                                      messageText: 'Successfully email sent',
-                                      context: context,
-                                    ).topSnackbar());
+                                // show(
+                                //     context,
+                                //     CustomSnackbar(
+                                //       messageText: 'Successfully email sent',
+                                //       context: context,
+                                //     ).topSnackbar());
                               },
                               child: Container(
                                   padding: EdgeInsets.all(12),
@@ -113,9 +113,9 @@ class ForgotPassword extends StatelessWidget {
         ));
   }
 
-  Future show(BuildContext context, Flushbar newFlushbar) async {
-    Future.wait([flushbar.dismiss()]);
-    newFlushbar.show(context);
-    flushbar = newFlushbar;
-  }
+  // Future show(BuildContext context, Flushbar newFlushbar) async {
+  //   Future.wait([flushbar.dismiss()]);
+  //   newFlushbar.show(context);
+  //   flushbar = newFlushbar;
+  // }
 }
